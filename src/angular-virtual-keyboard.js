@@ -1,3 +1,39 @@
+
+
+var ShuffleKeyboard = function(){
+    var row1Original = [['1', '!', '\u00a1', '\u00b9'], ['2', '@', '\u00b2'], ['3', '#', '\u00b3'], ['4', '$', '\u00a4', '\u00a3'], ['5', '%', '\u20ac'], ['6', '^', '\u00bc'], ['7', '&', '\u00bd'], ['8', '*', '\u00be'], ['9', '(', '\u2018'], ['0', ')', '\u2019'], ['-', '_', '\u00a5'], ['=', '+', '\u00d7', '\u00f7']];
+    var row1 = _.shuffle(row1Original);
+
+    row1.unshift(['`', '~']);
+    row1.push(['Bksp', 'Bksp']);
+
+    var row2Original = [['q', 'Q', '\u00e4', '\u00c4'], ['w', 'W', '\u00e5', '\u00c5'], ['e', 'E', '\u00e9', '\u00c9'], ['r', 'R', '\u00ae'], ['t', 'T', '\u00fe', '\u00de'], ['y', 'Y', '\u00fc', '\u00dc'], ['u', 'U', '\u00fa', '\u00da'], ['i', 'I', '\u00ed', '\u00cd'], ['o', 'O', '\u00f3', '\u00d3'], ['p', 'P', '\u00f6', '\u00d6'], ['[', '{', '\u00ab'], [']', '}', '\u00bb'], ['\\', '|', '\u00ac', '\u00a6']];
+    var row2 = _.shuffle(row2Original);
+
+    row2.unshift(['Tab', 'Tab']);
+
+    var row3Original = [['a', 'A', '\u00e1', '\u00c1'], ['s', 'S', '\u00df', '\u00a7'], ['d', 'D', '\u00f0', '\u00d0'], ['f', 'F'], ['g', 'G'], ['h', 'H'], ['j', 'J'], ['k', 'K'], ['l', 'L', '\u00f8', '\u00d8'], [';', ':', '\u00b6', '\u00b0']];
+
+    var row3 = _.shuffle(row3Original);
+    row3.unshift(['Caps', 'Caps']);
+    row3.push(['\'', '"', '\u00b4', '\u00a8']);
+    row3.push(['Enter', 'Enter']);
+
+    var row4Original = [['z', 'Z', '\u00e6', '\u00c6'], ['x', 'X'], ['c', 'C', '\u00a9', '\u00a2'], ['v', 'V'], ['b', 'B'], ['n', 'N', '\u00f1', '\u00d1'], ['m', 'M', '\u00b5'], [',', '<', '\u00e7', '\u00c7'], ['.', '>'], ['/', '?', '\u00bf']];
+    var row4 = _.shuffle(row4Original);
+
+    row4.unshift(['Shift', 'Shift']);
+    row4.push(['Shift', 'Shift']);
+
+    return {
+        ROW1 : row1,
+        ROW2 : row2,
+        ROW3 : row3,
+        ROW4 : row4
+    }
+}();
+
+
 angular.module('angular-virtual-keyboard', [])
 .constant('VKI_CONFIG', {
 	/*jshint maxlen:500 */
@@ -5,10 +41,10 @@ angular.module('angular-virtual-keyboard', [])
 	'layout': {
 		'US International': {
 			'name': 'US International', 'keys': [
-				[['`', '~'], ['1', '!', '\u00a1', '\u00b9'], ['2', '@', '\u00b2'], ['3', '#', '\u00b3'], ['4', '$', '\u00a4', '\u00a3'], ['5', '%', '\u20ac'], ['6', '^', '\u00bc'], ['7', '&', '\u00bd'], ['8', '*', '\u00be'], ['9', '(', '\u2018'], ['0', ')', '\u2019'], ['-', '_', '\u00a5'], ['=', '+', '\u00d7', '\u00f7'], ['Bksp', 'Bksp']],
-				[['Tab', 'Tab'], ['q', 'Q', '\u00e4', '\u00c4'], ['w', 'W', '\u00e5', '\u00c5'], ['e', 'E', '\u00e9', '\u00c9'], ['r', 'R', '\u00ae'], ['t', 'T', '\u00fe', '\u00de'], ['y', 'Y', '\u00fc', '\u00dc'], ['u', 'U', '\u00fa', '\u00da'], ['i', 'I', '\u00ed', '\u00cd'], ['o', 'O', '\u00f3', '\u00d3'], ['p', 'P', '\u00f6', '\u00d6'], ['[', '{', '\u00ab'], [']', '}', '\u00bb'], ['\\', '|', '\u00ac', '\u00a6']],
-				[['Caps', 'Caps'], ['a', 'A', '\u00e1', '\u00c1'], ['s', 'S', '\u00df', '\u00a7'], ['d', 'D', '\u00f0', '\u00d0'], ['f', 'F'], ['g', 'G'], ['h', 'H'], ['j', 'J'], ['k', 'K'], ['l', 'L', '\u00f8', '\u00d8'], [';', ':', '\u00b6', '\u00b0'], ['\'', '"', '\u00b4', '\u00a8'], ['Enter', 'Enter']],
-				[['Shift', 'Shift'], ['z', 'Z', '\u00e6', '\u00c6'], ['x', 'X'], ['c', 'C', '\u00a9', '\u00a2'], ['v', 'V'], ['b', 'B'], ['n', 'N', '\u00f1', '\u00d1'], ['m', 'M', '\u00b5'], [',', '<', '\u00e7', '\u00c7'], ['.', '>'], ['/', '?', '\u00bf'], ['Shift', 'Shift']],
+                ShuffleKeyboard.ROW1,
+                ShuffleKeyboard.ROW2,
+                ShuffleKeyboard.ROW3,
+                ShuffleKeyboard.ROW4,
 				[[' ', ' ', ' ', ' '], ['Alt', 'Alt']]
 			],
 		'lang': ['en'] }
